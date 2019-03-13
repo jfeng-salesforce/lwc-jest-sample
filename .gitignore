@@ -1,0 +1,8 @@
+.DS_Store
+.sfdx
+.vscode
+node_modules/
+
+# Ignore any gedit / temporary files
+*.*~
+*/*.*~

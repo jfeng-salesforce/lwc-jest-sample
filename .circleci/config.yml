@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # LWC uses node:10-browsers: https://github.com/salesforce/lwc/blob/master/.circleci/config.yml
+      - image: circleci/node:10-browsers
+    working_directory: ~/foo
+    steps:
+      - checkout
+      - run:
+          name: Install Jest-JUnit coverage reporter
+          command: yarn add --dev jest-junit
+      - run:
+          name: Run LWC Tests
+          environment:
+            JEST_JUNIT_OUTPUT: "testResults/lwc/js-test-results.xml"
+          command: yarn test:ci --coverageDirectory=testResults/lwc
+          when: always
+      - store_test_results:
+          path: testResults
+      - store_artifacts:
+          path: testResults

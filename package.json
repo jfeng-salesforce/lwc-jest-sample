@@ -1,0 +1,25 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "example",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@salesforce/lwc-jest": "0.4.12"
+  },
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "lwc-jest --coverage",
+    "test:ci": "lwc-jest --coverage --verbose -- --runInBand --ci --testLocationInResults --reporters=default --reporters=jest-junit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfeng-salesforce/lwc-jest-sample.git"
+  },
+  "author": "salesforce.com",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/jfeng-salesforce/lwc-jest-sample/issues"
+  },
+  "homepage": "https://github.com/jfeng-salesforce/lwc-jest-sample#readme"
+}

@@ -1,0 +1,17 @@
+# List files or directories below to ignore them when running force:source:push, force:source:pull, and force:source:status
+# More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_exclude_source.htm
+#
+# If you add more files here, please add a comment explaining why they need to be ignored.
+
+package.xml
+**/jsconfig.json
+**/.eslintrc.json
+
+# Do not deploy LWC Jest tests to orgs
+**/__tests__/**
+
+# Don't deploy scripts we'll only call from SFDX CLI 
+**/apexUtils/**
+
+# Needed to work around bug with force:source:pull. Fixed in 220. See GUS W-2881774.
+AppSwitcher.appMenu
