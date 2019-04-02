@@ -27,7 +27,7 @@ describe('c-nav-bar', () => {
             inputFieldEl.dispatchEvent(new CustomEvent('change'));
 
             const form = element.shadowRoot.querySelector('form');
-            expect(form.action).toBe(TRAILBLAZER_COMMUNITY_URL + '/search');
+            expect(form.action).toContain('search');
            
             form.dispatchEvent(new Event('submit'));
             
@@ -56,7 +56,7 @@ describe('c-nav-bar', () => {
             inputFieldEl.dispatchEvent(new CustomEvent('change'));
 
             const form = element.shadowRoot.querySelector('form');
-            expect(form.action).toBe(TRAILBLAZER_COMMUNITY_URL + '/search');
+            expect(form.action).toContain('search');
            
             form.dispatchEvent(new Event('submit'));
             
