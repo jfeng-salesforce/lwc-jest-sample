@@ -17,9 +17,6 @@ describe('c-nav-bar', () => {
         });
         document.body.appendChild(element);
 
-        // Emit data from @wire
-        getTrailblazerCommunityURLAdapter.emit(TRAILBLAZER_COMMUNITY_URL);
-
         return Promise.resolve().then(() => {            
 
             //mocking alert function
@@ -48,9 +45,6 @@ describe('c-nav-bar', () => {
             is: NavBar
         });
         document.body.appendChild(element);
-
-        // Emit data from @wire
-        getTrailblazerCommunityURLAdapter.emit(TRAILBLAZER_COMMUNITY_URL);
 
         return Promise.resolve().then(() => {            
 
