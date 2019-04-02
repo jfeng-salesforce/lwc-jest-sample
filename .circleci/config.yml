@@ -14,9 +14,15 @@ jobs:
           name: Install Jest-Html coverage reporter
           command: yarn add --dev jest-html-reporter
       - run:
+          name: Run Jest Tests
+          environment:
+          command: jest --coverage --coverageDirectory=testResults/jest jest-tests/sum.test.js
+          when: always
+      - run:
           name: Run LWC Tests
           environment:
             JEST_JUNIT_OUTPUT: "testResults/lwc/js-test-results.xml"
+            JEST_HTML_REPORTER_OUTPUT_PATH: "testResults/lwc/js-html-report.html"
           command: yarn test:ci --coverageDirectory=testResults/lwc
           when: always
       - store_test_results:

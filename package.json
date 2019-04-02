@@ -10,7 +10,7 @@
   "scripts": {
     "test": "npm run test:unit",
     "test:unit": "lwc-jest --coverage",
-    "test:ci": "lwc-jest --coverage --verbose -- --runInBand --ci --testLocationInResults --reporters=default --reporters=jest-junit"
+    "test:ci": "lwc-jest --coverage --verbose -- --runInBand --ci --testLocationInResults "
   },
   "repository": {
     "type": "git",
