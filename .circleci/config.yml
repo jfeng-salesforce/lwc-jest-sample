@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Run Jest Tests
           environment:
-          command: jest --coverage --coverageDirectory=testResults/jest jest-tests/sum.test.js
+          command: jest jest-tests/sum.test.js --no-cache --coverage --coverageDirectory=testResults/jest 
           when: always
           
       - store_test_results:
