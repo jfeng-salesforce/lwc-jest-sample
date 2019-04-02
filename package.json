@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "@salesforce/lwc-jest": "0.4.10"
+    "@salesforce/lwc-jest": "0.4.12"
   },
   "scripts": {
     "test": "npm run test:unit",
