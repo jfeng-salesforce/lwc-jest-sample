@@ -9,17 +9,69 @@ describe('c-nav-bar', () => {
         }
     });
 
-    it('contains the right title', () => {
-        const expected = 'IdeaExchange';
-
+    
+    it('search redirect show alert if search string lenght is 1 char', () => {
+        
         const element = createElement('c-nav-bar', {
             is: NavBar
         });
         document.body.appendChild(element);
 
-        //verify the title
-        
-        const card = element.shadowRoot.querySelector('lightning-card');
-        expect(card.title).toBe(expected);
+        // Emit data from @wire
+        getTrailblazerCommunityURLAdapter.emit(TRAILBLAZER_COMMUNITY_URL);
+
+        return Promise.resolve().then(() => {            
+
+            //mocking alert function
+            window.alert = jest.fn();
+                      
+            const inputFieldEl = element.shadowRoot.querySelector('input');
+            inputFieldEl.value =  'a';
+            inputFieldEl.dispatchEvent(new CustomEvent('change'));
+
+            const form = element.shadowRoot.querySelector('form');
+            expect(form.action).toBe(TRAILBLAZER_COMMUNITY_URL + '/search');
+           
+            form.dispatchEvent(new Event('submit'));
+            
+        }).then(() => {
+            //the alert is fired if search string is 1 char
+            expect(window.alert).toHaveBeenCalled();            
+            
+        });        
+
     });
+
+    it('search redirect don\'t show alert if search string lenght is more than 1 char', () => {
+        
+        const element = createElement('c-nav-bar', {
+            is: NavBar
+        });
+        document.body.appendChild(element);
+
+        // Emit data from @wire
+        getTrailblazerCommunityURLAdapter.emit(TRAILBLAZER_COMMUNITY_URL);
+
+        return Promise.resolve().then(() => {            
+
+            //mocking alert function
+            window.alert = jest.fn();
+                      
+            const inputFieldEl = element.shadowRoot.querySelector('input');
+            inputFieldEl.value =  '12';
+            inputFieldEl.dispatchEvent(new CustomEvent('change'));
+
+            const form = element.shadowRoot.querySelector('form');
+            expect(form.action).toBe(TRAILBLAZER_COMMUNITY_URL + '/search');
+           
+            form.dispatchEvent(new Event('submit'));
+            
+        }).then(() => {
+            //the alert is fired if search string is 1 char so it shouldn't have been fire for this case
+            expect(window.alert).not.toHaveBeenCalled();            
+            
+        });        
+
+    });
+
 });

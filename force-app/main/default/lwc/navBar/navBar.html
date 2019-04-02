@@ -1,5 +1,15 @@
 <template>
     <lightning-card title="IdeaExchange">
-        <p class="slds-p-horizontal_small">This is a placeholder for the header / navigation bar.</p>
+        <form action={searchUrl} method="GET" onsubmit={validateSearch} id="searchForm">
+            <label class="idx-assistive-text">Search</label>
+            <div class="idx-form-element__control idx-input-has-icon">
+            <button class="idx-search-button" id="search_button" type="submit">
+                <span class="idx-input__icon idx-input__icon_left"></span>
+            </button>
+            <input class="idx-input idx-lookup__search-input" id="keywords"
+                   placeholder="Search" role="textbox" type="text"
+                   value={searchKeyword} name="keywords" onchange={handleKeyChange} autocomplete="off" />
+            </div>
+        </form>
     </lightning-card>
 </template>

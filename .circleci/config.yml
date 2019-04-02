@@ -11,6 +11,9 @@ jobs:
           name: Install Jest-JUnit coverage reporter
           command: yarn add --dev jest-junit
       - run:
+          name: Install Jest-Html coverage reporter
+          command: yarn add --dev jest-html-reporter
+      - run:
           name: Run LWC Tests
           environment:
             JEST_JUNIT_OUTPUT: "testResults/lwc/js-test-results.xml"
